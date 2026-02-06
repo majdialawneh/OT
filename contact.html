@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <title>تواصل</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="app.js" defer></script>
 <script src="main.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -17,17 +18,28 @@
   </div>
 
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="index.html" class="active">الرئيسية</a></li>
     <li><a href="materials.html">المواد</a></li>
     <li><a href="quizzes.html">الاختبارات</a></li>
+    <li><a href="dashboard.html">لوحة الطالب</a></li>
     <li><a href="profile.html">الملف الشخصي</a></li>
     <li><a href="about.html">عن المنصة</a></li>
     <li><a href="contact.html">تواصل معنا</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="login.html">دخول</a></li>
-    <li><a href="signup.html">تسجيل</a></li>
+   
+    <!-- Auth Links -->
+<li id="loginLink"><a href="login.html">دخول</a></li>
+<li id="signupLink"><a href="signup.html">تسجيل</a></li>
+
+<!-- User Links -->
+<li id="userName" style="display:none;"></li>
+<li id="logoutLink" style="display:none;">
+  <a href="#" id="logoutBtn">تسجيل خروج</a>
+</li>
+
   </ul>
 </nav>
+
 
 <main class="page-bg">
 <div class="container">

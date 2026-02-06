@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>OT Platform</title>
+<title>منصة العلاج الوظيفي</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="app.js" defer></script>
 <script src="main.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
 <nav class="navbar">
   <div class="nav-top">
@@ -14,39 +17,60 @@
   </div>
 
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="index.html" class="active">الرئيسية</a></li>
     <li><a href="materials.html">المواد</a></li>
     <li><a href="quizzes.html">الاختبارات</a></li>
+    <li><a href="dashboard.html">لوحة الطالب</a></li>
     <li><a href="profile.html">الملف الشخصي</a></li>
     <li><a href="about.html">عن المنصة</a></li>
     <li><a href="contact.html">تواصل معنا</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="login.html">دخول</a></li>
-    <li><a href="signup.html">تسجيل</a></li>
+    <li id="logoutItem" style="display:none">
+  <button id="logoutBtn" class="btn small">تسجيل خروج</button>
+</li>
+
+   
+    <!-- Auth Links -->
+<li id="loginLink"><a href="login.html">دخول</a></li>
+<li id="signupLink"><a href="signup.html">تسجيل</a></li>
+
+<!-- User Links -->
+<li id="userName" style="display:none;"></li>
+<li id="logoutLink" style="display:none;">
+  <a href="#" id="logoutBtn">تسجيل خروج</a>
+</li>
+
   </ul>
 </nav>
 
-
-</head>
-<body>
 <main class="page-bg">
-<section class="hero">
-  <div class="hero-overlay"></div>
+  <section class="hero">
+    <div class="hero-overlay"></div>
 
-  <div class="hero-content">
-    <h1>منصة العلاج الوظيفي التعليمية</h1>
-    <p>
-      تعلم، تدرب، وطور مهاراتك العملية من خلال محتوى احترافي
-      مخصص لطلاب العلاج الوظيفي
-    </p>
+    <div class="hero-content">
+      <h1>مرحباً بك في منصة العلاج الوظيفي التعليمية</h1>
+      <p id="welcomeText">
+        تعلم، تدرب، وطور مهاراتك العملية من خلال محتوى احترافي
+      </p>
 
-    <div class="hero-buttons">
-      <a href="materials.html" class="btn">ابدأ التعلم</a>
-      <a href="signup.html" class="btn outline">إنشاء حساب</a>
+      <div class="hero-buttons">
+        <a href="materials.html" class="btn">ابدأ التعلم</a>
+        <a href="signup.html" class="btn outline">إنشاء حساب</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
+
 <footer>© OT Platform</footer>
+
+<script>
+  // إذا المستخدم مسجل دخول، عرض اسمه بالترحيب
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const welcomeText = document.getElementById("welcomeText");
+  if(currentUser && welcomeText){
+    welcomeText.textContent = `مرحباً ${currentUser.name}! استمتع بتعلمك وتدريبك.`;
+  }
+</script>
+
 </body>
 </html>
